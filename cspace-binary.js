@@ -1,6 +1,22 @@
 'use script'
+// @ts-check
 
-var list = [2, 3, 5, 7, 11, 13, 17, 19];
+//// STEPS TO TAKE
+// sort array - DONE
+// find middle number - DONE
+// request input
+// compare middle number to input
+// if middle number < input, get last half
+// find middle num of last half
+// if middle num < input, get last half
+// compare, create new array, loop
+
+var list = [11, 13, 17, 19, 2, 3, 5, 7];
+
+// sort array using number sorter from https://raddevon.com/articles/sort-array-numbers-javascript/
+const numberSorter = (a, b) => a - b;
+list = list.sort(numberSorter);
+document.write(list);
 
 // empty boolean for while num is still not found
 found = false;
@@ -15,7 +31,7 @@ while (found !== true) {
     document.write(mid);
 
     // is item actually in array? If not, notify user.
-    if (!list.indexOf(userNum)) {
+    if (list.indexOf(userNum) == -1) {
         document.write("Your number is not in this array! Please choose again.");
         break;
     }
