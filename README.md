@@ -52,7 +52,12 @@ Upon login, the User's previously selected squad is shown. Here they may edit Te
 ### Author [Mark Ellis ](https://github.com/markellisdev)
 
 #### References Used
+* [Initial article to refresh myself on what binary search is](https://careerkarma.com/blog/binary-search-javascript/)
+* [Refresh my memory on how to write to HTML](https://www.w3schools.com/js/js_output.asp)
 * [Sort Array](https://raddevon.com/articles/sort-array-numbers-javascript/)
 * [Mozilla JS Reference pages](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
 * [Switch cases over if-else](https://stackoverflow.com/a/44633141/6615341)
+
+##### Not used but perhaps should
+* [Test whether input is actually in array before any other code runs](https://stackoverflow.com/questions/6356122/javascript-if-in-x) This would be more efficient
 
