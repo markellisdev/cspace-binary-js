@@ -2,10 +2,10 @@
 // @ts-check
 
 //// STEPS TO TAKE
-// is array valid - DONE
-// sort array - DONE
-// find middle number - DONE
-// request input - DONE
+// 1. is array valid - DONE
+// 2. request input - DONE
+// 3. sort array - DONE
+// 4. find middle number - DONE
 // compare middle number to input
 // if middle number < input, get last half
 // find middle num of last half
@@ -17,22 +17,17 @@ var list = [11, 13, 17, 19, 2, 3, 5, 7];
 // sort array using number sorter from https://raddevon.com/articles/sort-array-numbers-javascript/
 const numberSorter = (a, b) => a - b;
 list = list.sort(numberSorter);
+// if (Array.isArray(list)) {
+//     console.log("It is array");
+// }
+// else {
+//     document.write("Please reload the page.")
+// }
 
 // test function
 function myFunction() {
-    document.write("This is my list: " + list); 
+    document.write("This is my test function writing my list: " + list); 
 }
-
-// validate list is array
-if (Array.isArray(list)) {
-    myFunction();
-}
-else {
-    document.write("This is not an array.");
-};
-
-// empty boolean for while num is still not found
-found = false;
 
 // get number from user input box
 var userInput = document.getElementById("inputNum");
@@ -52,57 +47,77 @@ userInput.addEventListener('keyup', function (e) {
         console.log('Input Value:', userInput.value);
     }, 1000);
 });
-var userNum = userInput.value;
+var userNum = Math.floor(userInput.value);
+console.log(typeof userNum);
 
-document.write(userNum);
-userNum = 47;
+// validate list is array
+function validateArray() {
+    if (Array.isArray(list)) {
+        // myFunction();
+        document.write(userNum);
+        binarySearch(list, userNum, start=0, stop=(list.length-1));
+    }
+    else {
+        document.write("This is not an array.");
+    };
+}
+
+
+userNum = 17;
 
 //// FUNCTION for binary search
-function binarySearch(arr, target, start=0, stop=(arr.length-1)) {
-
-    let midPoint = Math.floor(((stop-start)/2) + start)
+function binarySearch(list, userNum, start=0, stop=(list.length-1)) {
+    // using Math floor to round down to nearest int (1.7 = 1) so we can find mid of array
+    let mid = Math.floor(((stop-start)/2) + start);
+    // document.write("The mid is: " + mid + "/n");
+    // document.write("The length is: " + list.length);
   
     switch (true) {
-      case arr[midPoint] === target:
+      case list[mid] === userNum:
+        document.write("The index of your number is: " + mid);
         return true
       case stop - start === 0:
+        document.write("Your " + userNum + " is not in the array! " + list);
         return false
-      case arr[midPoint] < target:
-        return binarySearch(arr, target, midPoint+1, stop)
-      case arr[midPoint] > target:
-        return binarySearch(arr, target, start, midPoint)
+      case list[mid] < userNum:
+        return binarySearch(list, Number(userNum), mid+1, stop)
+      case list[mid] > userNum:
+        return binarySearch(list, Number(userNum), start, mid)
     }
   }
 
-//loop while num has not been found
-while (found !== true) {
-    // how many nums in list? divide by 2 for middle
-    mid = (list.length)/2;
-    document.write(mid);
+// empty boolean for while num is still not found
+found = false;
 
-    // is item actually in array? If not, notify user.
-    if (list.indexOf(userNum) == -1) {
-        document.write("Your number is not in this array! Please choose again.");
-        break;
-    }
-    else {
-        // begin at midpoint testing for equality
-        for (i=mid; i<list.length; i++) {
-            if (list[i] == userNum) {
-                document.write("yes " + i);
-                found = true;
-                break
-            }
-            else if (list[i] > userNum ) {
-                list = list.slice(0, i);
-                mid = (list.length)/2;
-                document.write("< " + list[i]);
-            }
-            else if (list[i] < userNum ) {
-                list = list.slice(i, list.length);
-                mid = (list.length)/2;
-                document.write("> " +  list[i]);
-            }
-        }
-    }
-}
+//loop while num has not been found
+// while (found !== true) {
+//     // how many nums in list? divide by 2 for middle
+//     mid = (list.length)/2;
+//     document.write(mid);
+
+//     // is item actually in array? If not, notify user.
+//     if (list.indexOf(userNum) == -1) {
+//         document.write("Your number is not in this array! Please choose again.");
+//         break;
+//     }
+//     else {
+//         // begin at mid testing for equality
+//         for (i=mid; i<list.length; i++) {
+//             if (list[i] == userNum) {
+//                 document.write("yes " + i);
+//                 found = true;
+//                 break
+//             }
+//             else if (list[i] > userNum ) {
+//                 list = list.slice(0, i);
+//                 mid = (list.length)/2;
+//                 document.write("< " + list[i]);
+//             }
+//             else if (list[i] < userNum ) {
+//                 list = list.slice(i, list.length);
+//                 mid = (list.length)/2;
+//                 document.write("> " +  list[i]);
+//             }
+//         }
+//     }
+// }
