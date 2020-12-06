@@ -1,17 +1,6 @@
 'use script'
 // @ts-check
 
-//// STEPS TO TAKE
-// 1. is array valid - DONE
-// 2. request input - DONE
-// 3. sort array - DONE
-// 4. find middle number - DONE
-// 5. compare middle number to input - DONE switch case starting line 62
-// 6. if middle number < input, get last half - DONE - switch case line 69
-// 7. if middle num < input, get last half - DONE - switch case line 71
-// 8. find middle num of first/last half - DONE - recursively with switch case until num is found
-// 9. compare, create new array, loop - DONE - no longer creating new array thanks to solution mentioned above; recursively eval original array in switch case lines 69-72
-
 var list = [11, 13, 17, 19, 2, 3, 5, 7];
 
 // sort array using number sorter from https://raddevon.com/articles/sort-array-numbers-javascript/
@@ -64,7 +53,7 @@ function binarySearch(list, userNum, start=0, stop=(list.length-1)) {
         document.write("The index of your number is: " + mid);
         return true
       case stop - start === 0:
-        document.write("Your " + userNum + " is not in the array! " + list);
+        document.write(userNum + " is not in the array! Please reload the page and pick from one of the following numbers " + list);
         return false
       case list[mid] < userNum:
         return binarySearch(list, Number(userNum), mid+1, stop)
