@@ -7,14 +7,10 @@
 </td>
 <tr>
 </table>
-<!-- <table>
-<tr>
-<td>
-  I had originally planned to use an API, but was unable to find an accessible free API containing all the data I wanted. A helpful individual in the dev community was gracious enough to provide me with directories of many xml documents containing ALL the statistical data from the current season (2016-2017). I then had to convert them to json files and iterate over them to extract only the information I intended to use. I then created a "cloud API" of data using Firebase from which I made requests via this app. A separate API was set up under Firebase to store information about the User and their team.
-</td>
-</tr>
-</table> -->
 
+## Thoughts/Solution Process
+Originally started out with vanilla JS using if, if else statements....
+but then found [this solution using switch cases](https://stackoverflow.com/a/44633141/6615341). I don't yet have the knowledge or the tests to prove this is faster, but from the author's explanation, it makes sense to me why it would/could be as array sizes get larger.
 
 <!-- ## Site
 ![](/images/read_me_images/Screen%20Shot%202017-03-10%20at%203.28.51%20PM.png "Home page")
