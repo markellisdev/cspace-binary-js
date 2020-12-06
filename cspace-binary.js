@@ -6,34 +6,27 @@
 // 2. request input - DONE
 // 3. sort array - DONE
 // 4. find middle number - DONE
-// compare middle number to input
-// if middle number < input, get last half
-// find middle num of last half
-// if middle num < input, get last half
-// compare, create new array, loop
+// 5. compare middle number to input - DONE switch case starting line 62
+// 6. if middle number < input, get last half - DONE - switch case line 69
+// 7. if middle num < input, get last half - DONE - switch case line 71
+// 8. find middle num of first/last half - DONE - recursively with switch case until num is found
+// 9. compare, create new array, loop - DONE - no longer creating new array thanks to solution mentioned above; recursively eval original array in switch case lines 69-72
 
 var list = [11, 13, 17, 19, 2, 3, 5, 7];
 
 // sort array using number sorter from https://raddevon.com/articles/sort-array-numbers-javascript/
 const numberSorter = (a, b) => a - b;
 list = list.sort(numberSorter);
-// if (Array.isArray(list)) {
-//     console.log("It is array");
-// }
-// else {
-//     document.write("Please reload the page.")
-// }
 
-// test function
-function myFunction() {
-    document.write("This is my test function writing my list: " + list); 
-}
 
 // get number from user input box
 var userInput = document.getElementById("inputNum");
 
 // Init a timeout variable to be used below
 let timeout = null;
+
+// Define var for input
+var userNum;
 
 // Listen for keystroke events to get user input
 userInput.addEventListener('keyup', function (e) {
@@ -45,25 +38,19 @@ userInput.addEventListener('keyup', function (e) {
     // Make a new timeout set to go off in 1000ms (1 second)
     timeout = setTimeout(function () {
         console.log('Input Value:', userInput.value);
+        userNum = Math.floor(userInput.value);
     }, 1000);
 });
-var userNum = Math.floor(userInput.value);
-console.log(typeof userNum);
 
 // validate list is array
 function validateArray() {
     if (Array.isArray(list)) {
-        // myFunction();
-        document.write(userNum);
         binarySearch(list, userNum, start=0, stop=(list.length-1));
     }
     else {
         document.write("This is not an array.");
     };
 }
-
-
-userNum = 17;
 
 //// FUNCTION for binary search
 function binarySearch(list, userNum, start=0, stop=(list.length-1)) {
@@ -86,8 +73,10 @@ function binarySearch(list, userNum, start=0, stop=(list.length-1)) {
     }
   }
 
+
+//// ORIGNAL PATH before changing to switch case above /////  
 // empty boolean for while num is still not found
-found = false;
+// found = false;
 
 //loop while num has not been found
 // while (found !== true) {
