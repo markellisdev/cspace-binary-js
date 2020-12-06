@@ -21,8 +21,30 @@ document.write(list);
 // empty boolean for while num is still not found
 found = false;
 
-// get number from user
-userNum = 47
+// get number from user input box
+var userInput = document.getElementById("inputNum");
+
+// Init a timeout variable to be used below
+let timeout = null;
+
+// Listen for keystroke events
+userInput.addEventListener('keyup', function (e) {
+    // Clear the timeout if it has already been set.
+    // This will prevent the previous task from executing
+    // if it has been less than <MILLISECONDS>
+    clearTimeout(timeout);
+
+    // Make a new timeout set to go off in 1000ms (1 second)
+    timeout = setTimeout(function () {
+        console.log('Input Value:', userInput.value);
+    }, 1000);
+});
+var userNum = userInput.value;
+function myFunction() {
+    document.write(userNum); 
+}
+document.write(userNum);
+userNum = 47;
 
 //loop while num has not been found
 while (found !== true) {
