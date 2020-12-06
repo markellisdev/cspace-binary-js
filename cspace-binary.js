@@ -2,9 +2,10 @@
 // @ts-check
 
 //// STEPS TO TAKE
+// is array valid - DONE
 // sort array - DONE
 // find middle number - DONE
-// request input
+// request input - DONE
 // compare middle number to input
 // if middle number < input, get last half
 // find middle num of last half
@@ -16,7 +17,19 @@ var list = [11, 13, 17, 19, 2, 3, 5, 7];
 // sort array using number sorter from https://raddevon.com/articles/sort-array-numbers-javascript/
 const numberSorter = (a, b) => a - b;
 list = list.sort(numberSorter);
-document.write(list);
+
+// test function
+function myFunction() {
+    document.write("This is my list: " + list); 
+}
+
+// validate list is array
+if (Array.isArray(list)) {
+    myFunction();
+}
+else {
+    document.write("This is not an array.");
+};
 
 // empty boolean for while num is still not found
 found = false;
@@ -27,7 +40,7 @@ var userInput = document.getElementById("inputNum");
 // Init a timeout variable to be used below
 let timeout = null;
 
-// Listen for keystroke events
+// Listen for keystroke events to get user input
 userInput.addEventListener('keyup', function (e) {
     // Clear the timeout if it has already been set.
     // This will prevent the previous task from executing
@@ -40,11 +53,26 @@ userInput.addEventListener('keyup', function (e) {
     }, 1000);
 });
 var userNum = userInput.value;
-function myFunction() {
-    document.write(userNum); 
-}
+
 document.write(userNum);
 userNum = 47;
+
+//// FUNCTION for binary search
+function binarySearch(arr, target, start=0, stop=(arr.length-1)) {
+
+    let midPoint = Math.floor(((stop-start)/2) + start)
+  
+    switch (true) {
+      case arr[midPoint] === target:
+        return true
+      case stop - start === 0:
+        return false
+      case arr[midPoint] < target:
+        return binarySearch(arr, target, midPoint+1, stop)
+      case arr[midPoint] > target:
+        return binarySearch(arr, target, start, midPoint)
+    }
+  }
 
 //loop while num has not been found
 while (found !== true) {
