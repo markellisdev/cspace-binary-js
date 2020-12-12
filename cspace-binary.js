@@ -9,32 +9,37 @@ list = list.sort(numberSorter);
 
 
 // get number from user input box
-var userInput = document.getElementById("inputNum");
+// var userInput = document.getElementById("inputNum");
 
 // Init a timeout variable to be used below
 let timeout = null;
 
+//  -- Define USER INPUTS --
+// Define var for array
+var userArr;
 // Define var for input
 var userNum;
 
-// Listen for keystroke events to get user input
-userInput.addEventListener('keyup', function (e) {
-    // Clear the timeout if it has already been set.
-    // This will prevent the previous task from executing
-    // if it has been less than <MILLISECONDS>
-    clearTimeout(timeout);
 
-    // Make a new timeout set to go off in 1000ms (1 second)
-    timeout = setTimeout(function () {
-        console.log('Input Value:', userInput.value);
-        userNum = Math.floor(userInput.value);
-    }, 1000);
-});
+// Listen for keystroke events to get user input
+// userInput.addEventListener('keyup', function (e) {
+//     // Clear the timeout if it has already been set.
+//     // This will prevent the previous task from executing
+//     // if it has been less than <MILLISECONDS>
+//     clearTimeout(timeout);
+
+//     // Make a new timeout set to go off in 1000ms (1 second)
+//     timeout = setTimeout(function () {
+//         console.log('Input Value:', userInput.value);
+//         userNum = Math.floor(userInput.value);
+//     }, 1000);
+// });
 
 // validate list is array
-function validateArray() {
-    if (Array.isArray(list)) {
-        binarySearch(list, userNum, start=0, stop=(list.length-1));
+function validateArray(userArr, userNum) {
+    console.log(userArr)
+    if (Array.isArray(userArr)) {
+        binarySearch(userArr, userNum, start=0, stop=(list.length-1));
     }
     else {
         document.write("This is not an array.");
@@ -61,6 +66,28 @@ function binarySearch(list, userNum, start=0, stop=(list.length-1)) {
         return binarySearch(list, Number(userNum), start, mid)
     }
   }
+
+// JQuery for buttons
+$("#inputArr").keypress(function(event) { 
+  if (event.keyCode === 13) {
+    // Store user array
+    userArr = ($('#inputArr').val()).split`,`.map(x=>+x).sort(numberSorter);
+    userNum = 4;
+    console.log(userArr);
+    // validate it is an array and if so, binary search it 
+    validateArray(userArr, userNum); 
+  } 
+}); 
+
+$("#pass").keypress(function(event) { 
+  if (event.keyCode === 13) { 
+      $("#GFG_Button").click(); 
+  } 
+}); 
+
+$("#GFG_Button").click(function() { 
+  alert("Button clicked"); 
+}); 
 
 
 //// ORIGNAL PATH before changing to switch case above /////  
