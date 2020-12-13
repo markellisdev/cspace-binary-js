@@ -12,6 +12,9 @@
 Originally started out with vanilla JS using if-else statements....
 but then found [this solution using switch cases](https://stackoverflow.com/a/44633141/6615341). I don't yet have the knowledge or the tests to prove this is faster, but from the author's explanation, it makes sense to me why it would/could be as array sizes get larger.
 
+Have this working but want to write validations for confirming array has integers only....
+Now, succesfully evaluating using [this article about checking if objects in an array fullfill a condition](https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/#:~:text=Checking%20if%20objects%20in%20array%20fulfill%20a%20condition%20-%20Array.every,%20Array.includes) and the [JavaScript isInteger method](https://www.w3schools.com/jsref/jsref_isinteger.asp).
+
 ## Edited original list here to actual STEPS TAKEN
 <p><s>This was originally STEPS TO TAKE</s></p>
 

@@ -35,15 +35,26 @@ var userNum;
 //     }, 1000);
 // });
 
-// validate list is array
+// validate users input list is array
 function validateArray(userArr, userNum) {
     console.log(userArr)
     if (Array.isArray(userArr)) {
-        binarySearch(userArr, userNum, start=0, stop=(list.length-1));
+        // binarySearch(userArr, userNum, start=0, stop=(list.length-1));
+        itemsAreInts(userArr)
     }
     else {
         document.write("This is not an array.");
     };
+}
+
+//// Function array items are ints
+function itemsAreInts(list) {
+  if (list.every(list => Number.isInteger(list))) {
+    console.log("Thank you for entering an array of only integers.")
+  }
+  else {
+    console.log("Your array contains items other than numbers. Please refresh the page and enter an array containing ONLY integers.");
+  }
 }
 
 //// FUNCTION for binary search
