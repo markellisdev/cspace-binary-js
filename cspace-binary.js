@@ -51,6 +51,7 @@ function validateArray(userArr, userNum) {
 function itemsAreInts(list) {
   if (list.every(list => Number.isInteger(list))) {
     console.log("Thank you for entering an array of only integers.")
+    $("#userNumSection").show();
   }
   else {
     console.log("Your array contains items other than numbers. Please refresh the page and enter an array containing ONLY integers.");

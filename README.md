@@ -15,6 +15,8 @@ but then found [this solution using switch cases](https://stackoverflow.com/a/44
 Have this working but want to write validations for confirming array has integers only....
 Now, succesfully evaluating using [this article about checking if objects in an array fullfill a condition](https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/#:~:text=Checking%20if%20objects%20in%20array%20fulfill%20a%20condition%20-%20Array.every,%20Array.includes) and the [JavaScript isInteger method](https://www.w3schools.com/jsref/jsref_isinteger.asp).
 
+Added functionality to display the option to find a number, only after a correct/valid array has been entered. - line 54 of itemsAreInt function, which is triggered only after array has been evaluated as valid array.
+
 ## Edited original list here to actual STEPS TAKEN
 <p><s>This was originally STEPS TO TAKE</s></p>
 
