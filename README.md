@@ -11,6 +11,9 @@
 ## Thoughts/Solution Process
 Originally started out with vanilla JS using if-else statements....
 but then found [this solution using switch cases](https://stackoverflow.com/a/44633141/6615341). I don't yet have the knowledge or the tests to prove this is faster, but from the author's explanation, it makes sense to me why it would/could be as array sizes get larger.
+Updated: In the link above, I misunderstood the discussion regarding switch cases and if statements. Apparently, *switch is faster in most cases* but [significantly faster ONLY when the number of conditions is large](https://www.oreilly.com/library/view/high-performance-javascript/9781449382308/ch04.html#if-else_versus_switch), so it really has nothing to do with the size of the array evaluated.
+
+
 The steps taken below were what got to MVP. Anything after this initial paragraph is something I thought of to make this better.
 
 Have this working but want to write validations for confirming array has integers only....
